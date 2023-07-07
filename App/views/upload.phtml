@@ -1,0 +1,15 @@
+<main class="form main">
+    <form method="post" class="login-form" enctype="multipart/form-data">
+        <input type="hidden" name="MAX_FILE_SIZE" value="<?= MAX_FILE_SIZE ?>">
+        <label for="files">Выберите фотографии для загрузки:</label>
+        <input type="file" name="files[]" multiple required accept=".jpg, .jpeg, .png, .tiff">
+        <label for="title">Описание:</label>
+        <textarea class="input"name="title" type="text" rows="5" placeholder="Описание картинки" autofocus></textarea>
+        <input class="button" name="submit" type="submit" value="Загрузить">
+        <?php 
+            if(!empty($pageData['error'])){
+            echo "<p class='msg'>" . $pageData['error'] . "</p>";
+            }
+        ?>
+    </form>
+</main>
