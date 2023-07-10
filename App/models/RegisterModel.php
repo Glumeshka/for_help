@@ -30,10 +30,10 @@ class RegisterModel extends Model
 
         if(password_verify($password2, $password)) {
             $stmt->execute();
-            header("Location: /");
-        } else {
-            echo '1';
+            header("Location: /Logon");
+        } else {            
             return false;
         }
+        // можно проверки по логике добавить
     }   
 }

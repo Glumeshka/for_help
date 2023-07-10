@@ -7,7 +7,6 @@ class Route
 	public static function start()
 	{
 		$controllerClassName = 'Main';
-		// $modelName = 'Main';
 		$actionName = 'index';
 		$payload = [];
 

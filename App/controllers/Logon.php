@@ -15,6 +15,11 @@ class Logon extends Controller
     public function index()
     {
         $this->pageData['title'] = "Авторизация";
+
+        if(!empty($_SESSION['user'])) {
+            header("Location: /");
+        }
+
         if(!empty($_POST))
         {
             if(!$this->logon())

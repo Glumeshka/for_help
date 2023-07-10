@@ -16,8 +16,16 @@ class Main extends Controller
 
     public function index()
     {
+        $images = $this->model->getGallery();
         $this->pageData['title'] = "Галерея";
+        $this->pageData['images'] = $images;
         // получить фотки и их описание и загнать в массив в отрисовке
         $this->view->render('main.phtml', 'template.phtml', $this->pageData);
+    }
+
+    public function logout()
+    {
+        session_destroy();
+        header("Location: /");
     }
 }

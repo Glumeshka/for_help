@@ -1,8 +1,8 @@
 <div class="main">
     <section class="section">
-        <img src="/uploads/Кот_011.jpg"> 
+        <img src="<?php echo UPLOAD_DIR . '\\' . $pageData['image']['filename']?>"> 
         <h2 class='section-item'>
-            Тут будет описание картинки типо текст арии, Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, atque cum? Assumenda dolorum beatae in! Quos, voluptatibus. Ut iure voluptatibus perspiciatis soluta provident. Ratione odit fugiat harum magnam eligendi earum.
+            <?php echo $pageData['image']['title']?>
         </h2>
     </section>
     <div class="section-item">

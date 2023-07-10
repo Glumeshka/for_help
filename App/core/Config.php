@@ -6,7 +6,6 @@ define("MAX_FILE_SIZE", 5000000);
 define('ALLOWED_TYPES', ['image/jpeg', 'image/png', 'image/gif']);
 define('UPLOAD_DIR', 'uploads');
 
-
 define("ROOT", dirname(__DIR__, 2) . DIRECTORY_SEPARATOR);
 define("APP", ROOT . 'App' . DIRECTORY_SEPARATOR);
 define("CORE", APP . 'core' . DIRECTORY_SEPARATOR);

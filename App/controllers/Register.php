@@ -17,6 +17,11 @@ class Register extends Controller
     public function index()
     {
         $this->pageData['title'] = "Регистрация";
+        
+        if(!empty($_SESSION['user'])) {
+            header("Location: /");
+        }
+
         if(!empty($_POST))
         {
             if(!$this->registr())

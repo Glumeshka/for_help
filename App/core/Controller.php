@@ -6,9 +6,11 @@ class Controller
 {
 	protected $model;
 	protected $view;
+	protected $imageModel;
+	protected $commentModel;
 	protected $pageData = [];
 	
-	function __construct()
+	public function __construct()
 	{
 		$this->view = new View();
 		$this->model = new Model();

@@ -17,10 +17,13 @@ class LogonModel extends Model
         $stmt->execute();
         $res = $stmt->fetch(\PDO::FETCH_ASSOC);
         $userPass = $res["password"];
+        $idUser = $res['id'];
         
         if(password_verify($currentPassword, $userPass)) {
+            $_SESSION['user'] = $currentUsername;
+            $_SESSION['idUser'] = $idUser;
             header("Location: /");
-        } else {
+        } else {            
             return false;
         }
     }
