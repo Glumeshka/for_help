@@ -18,8 +18,7 @@ class Main extends Controller
     {
         $images = $this->model->getGallery();
         $this->pageData['title'] = "Галерея";
-        $this->pageData['images'] = $images;
-        // получить фотки и их описание и загнать в массив в отрисовке
+        $this->pageData['images'] = $images;        
         $this->view->render('main.phtml', 'template.phtml', $this->pageData);
     }
 

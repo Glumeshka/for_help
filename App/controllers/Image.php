@@ -17,30 +17,37 @@ class Image extends Controller
         $this->view = new View();
     }
 
-    public function index($idImage)
-    {
-        $this->pageData['title'] = "Картинка " . $idImage; 
-        $this->pageData['image'] = $this->imageModel->getImage($idImage);
-        $this->view->render('image.phtml', 'template.phtml', $this->pageData); 
+    public function index()
+    {            
+        header("Location: /");
     }
 
-    public function delImage($idImage)
+    public function id($idN)
     {
-
+        $id = $idN[0];
+        $this->pageData['title'] = "Картинка " . $id;
+        $this->pageData['image'] = $this->imageModel->getImage($id);
+        $this->pageData['comment'] = $this->commentModel->getComment($id);
+        $this->view->render('image.phtml', 'template.phtml', $this->pageData);        
     }
 
-    public function addComment($idImage)
+    public function delImage($idN)
     {
-
+        $this->imageModel->delImage($idN);
     }
 
-    public function delComment($idImage)
+    public function addComment($idN)
     {
-
+        $this->commentModel->addComment($idN);
     }
 
-    public function uppComment($idImage)
+    public function delComment($idN)
     {
+        $this->commentModel->delComment($idN);
+    }
 
+    public function uppComment($idN)
+    {
+        //Когда нибудь реализую
     }
 }

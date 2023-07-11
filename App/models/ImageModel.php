@@ -54,28 +54,32 @@ class ImageModel extends Model
         return $errors;
         }                
     }
-    public function getImage($idImage)
+    public function getImage($id)
     {
-        $sql = "SELECT * FROM images WHERE id = :id";
-
+        $sql = "SELECT * FROM users
+                RIGHT JOIN images ON users.id = images.owner
+                WHERE images.id = :id";
         $stmt = $this->db->prepare($sql);
-        $stmt->bindValue(":id", $idImage, \PDO::PARAM_INT);
+        $stmt->bindValue(":id", $id, \PDO::PARAM_INT);
         $stmt->execute();
         $res = $stmt->fetch(\PDO::FETCH_ASSOC);
-        
         return $res;        
     }
    
-    public function deleteImage($image)
+    public function delImage($idN)
     {
+        $id = $idN[0];
+        $temp = $this->getImage($id);
+        $tempPath = UPLOAD_DIR . "\\" . $temp['filename'];
+        $del = unlink($tempPath);
+
         $sql = "DELETE FROM images WHERE images.id = :id";
 
         $stmt = $this->db->prepare($sql);
-        $stmt->bindValue(":id", $image, \PDO::PARAM_INT);
+        $stmt->bindValue(":id", $id, \PDO::PARAM_INT);
         $stmt->execute();
-
-        header("Location: /");        
+        if($del){
+            header("Location: /");
+        }    
     }
-
-
 }

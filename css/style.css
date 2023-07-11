@@ -148,6 +148,7 @@ input {
 }
 
 .button {
+    margin-bottom: 45px;
     padding: 10px;
     background-color: #e3e3e3;
     cursor: pointer;
